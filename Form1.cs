@@ -487,7 +487,8 @@ namespace zeldaGui
             }
         }
 
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        //private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             if (editMode == true)
             {
@@ -530,7 +531,8 @@ namespace zeldaGui
         DateTime timeended;
         bool timerend = false;
         bool uiChanged = false;
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        //private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             int mX = (e.X / 32);
             int mY = (e.Y / 32);
