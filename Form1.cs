@@ -28,7 +28,7 @@ namespace zeldaGui
         {
             globalTimer.MakeTransparent(Color.Fuchsia);
             globalCount.MakeTransparent(Color.Fuchsia);
-            this.Text = "Right Click Here";
+            this.Text = "ALTTP Rando HUD";
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             g = Graphics.FromImage(pictureBox1.Image);
            
@@ -313,6 +313,7 @@ namespace zeldaGui
                 bool loop = false;
                 bool bottle = false;
                 bool count = false;
+                bool dungeon = false;
                 //Read character
                 if (line.Length > 1)
                 {
@@ -369,7 +370,16 @@ namespace zeldaGui
                             {
                                 count = true;
                             }
-                            CustomItem ci = new CustomItem(order, name, loop, bottle, count);
+
+                            if (loopbottle[3][0] == 'f')
+                            {
+                                dungeon = false;
+                            }
+                            if (loopbottle[3][0] == 't')
+                            {
+                                dungeon = true;
+                            }
+                            CustomItem ci = new CustomItem(order, name, loop, bottle, count, dungeon);
                             if (count == true)
                             {
                                 ci.on = true;
@@ -530,16 +540,25 @@ namespace zeldaGui
                 {
                     if (e.Button == MouseButtons.Left)
                     {
-
-
-                        if (itemsArray[mX, mY].on)
+                        /* behavior for dungeon type icons are different */
+                        if (itemsArray[mX, mY].dungeon)
+                        {
+                            if (itemsArray[mX, mY].on)
+                            {
+                                itemsArray[mX, mY].on = false;
+                            }
+                            else
+                            {
+                                itemsArray[mX, mY].on = true;
+                            }
+                        }
+                        else if (itemsArray[mX, mY].on)
                         {
                             if (itemsArray[mX, mY].count)
                             {
                                 itemsArray[mX, mY].counter++;
                             }
-
-                                if (itemsArray[mX, mY].level < itemsArray[mX, mY].iconsId.Length - 1)
+                            if (itemsArray[mX, mY].level < itemsArray[mX, mY].iconsId.Length - 1)
                             {
                                 if (itemsArray[mX, mY].name == "Timer_StartDone")
                                 {
@@ -618,7 +637,20 @@ namespace zeldaGui
                     }
                     else if (e.Button == MouseButtons.Right)
                     {
-                        if (itemsArray[mX, mY].on)
+                        /* behavior for dungeon type icons are different */
+                        if (itemsArray[mX, mY].dungeon)
+                        {
+                            /* change the levels for dungeons */
+                            if (itemsArray[mX, mY].level < itemsArray[mX, mY].iconsId.Length - 1)
+                            {
+                                itemsArray[mX, mY].level++;
+                            }
+                            else
+                            {
+                                itemsArray[mX, mY].level = 0;
+                            }
+                        }
+                        else if (itemsArray[mX, mY].on)
                         {
                             if (itemsArray[mX, mY].name == "Timer_Start" || itemsArray[mX, mY].name == "Timer_StartDone")
                             {
@@ -629,7 +661,7 @@ namespace zeldaGui
                             }
 
 
-                                if (itemsArray[mX, mY].count == false)
+                            if (itemsArray[mX, mY].count == false)
                             {
                                 if (itemsArray[mX, mY].name == "Timer_Done" || itemsArray[mX, mY].name == "Timer_StartDone")
                                 {
