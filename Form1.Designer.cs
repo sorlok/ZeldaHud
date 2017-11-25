@@ -33,6 +33,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            //this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fSerialPorts = new Form2();
+            //this.serialPort = new System.IO.Ports.SerialPort();
+            this.ws = new WebSocketSharp.WebSocket("ws://localhost:8080/");
             this.topMostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importOldLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +48,7 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.autoUpdateUSBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,13 +59,14 @@
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
+            this.autoUpdateUSBToolStripMenuItem,
             this.topMostToolStripMenuItem,
             this.importOldLayoutToolStripMenuItem,
             this.saveLayoutToolStripMenuItem,
             this.clearItemsToolStripMenuItem,
             this.showStatsToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 224);
             // 
             // toolStripMenuItem1
             // 
@@ -84,6 +90,14 @@
             this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
             this.toolStripMenuItem3.Text = "AutoUpdate";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.autoUpdateUSBToolStripMenuItem.CheckOnClick = true;
+            this.autoUpdateUSBToolStripMenuItem.Name = "toolStripMenuItem4";
+            this.autoUpdateUSBToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.autoUpdateUSBToolStripMenuItem.Text = "AutoUpdate USB";
+            this.autoUpdateUSBToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // topMostToolStripMenuItem
             // 
@@ -164,6 +178,12 @@
             this.timer2.Interval = 800;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // autoUpdateUSBToolStripMenuItem
+            // 
+            this.autoUpdateUSBToolStripMenuItem.Name = "autoUpdateUSBToolStripMenuItem";
+            this.autoUpdateUSBToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.autoUpdateUSBToolStripMenuItem.Text = "AutoUpdate USB";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,6 +216,9 @@
         private System.Windows.Forms.ToolStripMenuItem topMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveLayoutToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Form2 fSerialPorts;
+        private WebSocketSharp.WebSocket ws;
+        //private System.IO.Ports.SerialPort serialPort;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem importOldLayoutToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
@@ -203,6 +226,7 @@
         private System.Windows.Forms.ToolStripMenuItem showStatsToolStripMenuItem1;
         private System.Windows.Forms.Timer timer2;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem autoUpdateUSBToolStripMenuItem;
     }
 }
 
