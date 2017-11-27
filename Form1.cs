@@ -26,6 +26,351 @@ namespace zeldaGui
             InitializeComponent();
 
         }
+
+
+        private static Dictionary<int, string> _items = new Dictionary<int, string>()
+        {
+            { 0x00, "Fighters Sword and Shield" },
+            { 0x01, "Master Sword" },
+            { 0x02, "Tempered Sword" },
+            { 0x03, "Golden Sword" },
+            { 0x04, "Fighters Shield" },
+            { 0x05, "Fire Shield" },
+            { 0x06, "Mirror Shield" },
+            { 0x07, "Fire Rod" },
+            { 0x08, "Ice Rod" },
+            { 0x09, "Hammer" },
+            { 0x0A, "Hookshot" },
+            { 0x0B, "Bow" },
+            { 0x0C, "Boomerang" },
+            { 0x0D, "Magic Powder" },
+            { 0x0E, "Bee" },
+            { 0x0F, "Bombos" },
+            { 0x10, "Ether" },
+            { 0x11, "Quake" },
+            { 0x12, "Lamp" },
+            { 0x13, "Shovel" },
+            { 0x14, "Flute" },
+            { 0x15, "Cane Of Somaria" },
+            { 0x16, "Bottle" },
+            { 0x17, "Piece Of Heart" },
+            { 0x18, "Cane Of Byrna" },
+            { 0x19, "Magic Cape" },
+            { 0x1A, "Magic Mirror" },
+            { 0x1B, "Power Glove" },
+            { 0x1C, "Titans Mitt" },
+            { 0x1D, "Book Of Mudora" },
+            { 0x1E, "Flippers" },
+            { 0x1F, "Moon Pearl" },
+            { 0x21, "Bug Catching Net" },
+            { 0x22, "Blue Mail" },
+            { 0x23, "Red Mail" },
+            { 0x24, "Key" },
+            { 0x25, "Compass" },
+            { 0x27, "Bomb" },
+            { 0x28, "Three Bombs" },
+            { 0x29, "Mushroom" },
+            { 0x2A, "Magical Boomerang" },
+            { 0x2E, "Red Potion" },
+            { 0x2F, "Green Potion" },
+            { 0x30, "Blue Potion" },
+            { 0x31, "Ten Bombs" },
+            { 0x32, "Big Key" },
+            { 0x33, "Dungeon Map" },
+            { 0x34, "One Rupee" },
+            { 0x35, "Five Rupees" },
+            { 0x36, "Twenty Rupees" },
+            { 0x37, "Pendant Of Courage" },
+            { 0x38, "Pendant Of Wisdom" },
+            { 0x39, "Pendant Of Power" },
+            { 0x3A, "Bow And Arrows" },
+            { 0x3B, "Bow And Silver Arrows" },
+            { 0x3E, "Heart Container" },
+            { 0x40, "One Hundred Rupees" },
+            { 0x41, "Fifty Rupees" },
+            { 0x42, "Heart" },
+            { 0x43, "Arrow" },
+            { 0x44, "Ten Arrows" },
+            { 0x45, "Small Magic" },
+            { 0x46, "Three Hundred Rupees" },
+            { 0x47, "Twenty Rupees" },
+            { 0x49, "Fighters Sword" },
+            { 0x4B, "Pegasus Boots" },
+            { 0x4E, "Half Magic" },
+            { 0x4F, "Quarter Magic" },
+            { 0x50, "Master Sword" },
+            { 0x55, "Programmable 1" },
+            { 0x56, "Programmable 2" },
+            { 0x57, "Programmable 3" },
+            { 0x58, "Silver Arrows Upgrade" },
+            { 0x59, "Rupoor" },
+            { 0x5A, "Nothing" },
+            { 0x5B, "Red Clock" },
+            { 0x5C, "Blue Clock" },
+            { 0x5D, "Green Clock" },
+            { 0x5E, "Progressive Sword" },
+            { 0x5F, "Progressive Shield" },
+            { 0x60, "Progressive Armor" },
+            { 0x61, "Progressive Glove" },
+            { 0x62, "Unique RNG Item" },
+            { 0x63, "Non-Unique RNG Item" },
+            { 0x6A, "Triforce" },
+            { 0x6B, "Power Star" },
+            { 0x6C, "Triforce Piece" },
+            { 0x70, "Light World Map" },
+            { 0x71, "Dark World Map" },
+            { 0x72, "Ganons Tower Map" },
+            { 0x73, "Turtle Rock Map" },
+            { 0x74, "Thieves Town Map" },
+            { 0x75, "Tower of Hera Map" },
+            { 0x76, "Ice Palace Map" },
+            { 0x77, "Skull Woods Map" },
+            { 0x78, "Misery Mire Map" },
+            { 0x79, "Palace of Darkness Map" },
+            { 0x7A, "Swamp Palace Map" },
+            { 0x7B, "Agahnims Tower Map" },
+            { 0x7C, "Desert Palace Map" },
+            { 0x7D, "Eastern Palace Map" },
+            { 0x7E, "Hyrule Castle Map" },
+            { 0x7F, "Sewers Map" },
+            { 0x82, "Ganons Tower Compass" },
+            { 0x83, "Turtle Rock Compass" },
+            { 0x84, "Thieves Town Compass" },
+            { 0x85, "Tower of Hera Compass" },
+            { 0x86, "Ice Palace Compass" },
+            { 0x87, "Skull Woods Compass" },
+            { 0x88, "Misery Mire Compass" },
+            { 0x89, "Palace of Darkness Compass" },
+            { 0x8A, "Swamp Palace Compass" },
+            { 0x8B, "Agahnims Tower Compass" },
+            { 0x8C, "Desert Palace Compass" },
+            { 0x8D, "Eastern Palace Compass" },
+            { 0x8E, "Hyrule Castle Compass" },
+            { 0x8F, "Sewers Compass" },
+            { 0x92, "Ganons Tower Big Key" },
+            { 0x93, "Turtle Rock Big Key" },
+            { 0x94, "Thieves Town Big Key" },
+            { 0x95, "Tower of Hera Big Key" },
+            { 0x96, "Ice Palace Big Key" },
+            { 0x97, "Skull Woods Big Key" },
+            { 0x98, "Misery Mire Big Key" },
+            { 0x99, "Palace of Darkness Big Key" },
+            { 0x9A, "Swamp Palace Big Key" },
+            { 0x9B, "Agahnims Tower Big Key" },
+            { 0x9C, "Desert Palace Big Key" },
+            { 0x9D, "Eastern Palace Big Key" },
+            { 0x9E, "Hyrule Castle Big Key" },
+            { 0x9F, "Sewers Big Key" },
+            { 0xA0, "Sewers Key" },
+            { 0xA1, "Hyrule Castle Key" },
+            { 0xA2, "Eastern Palace Key" },
+            { 0xA3, "Desert Palace Key" },
+            { 0xA4, "Agahnims Tower Key" },
+            { 0xA5, "Swamp Palace Key" },
+            { 0xA6, "Palace of Darkness Key" },
+            { 0xA7, "Misery Mire Key" },
+            { 0xA8, "Skull Woods Key" },
+            { 0xA9, "Ice Palace Key" },
+            { 0xAA, "Tower of Hera Key" },
+            { 0xAB, "Thieves Town Key" },
+            { 0xAC, "Turtle Rock Key" },
+            { 0xAD, "Ganons Tower Key" },
+        };
+
+        string LocationsString = @"
+        private static Dictionary<string, int> _locations = new Dictionary<string, int>() {
+            { ""Aginah's Cave"", 0xE9F2 },
+            { ""Blind's Hideout - Far Left"", 0xEB18 },
+            { ""Blind's Hideout - Far Right"", 0xEB1B },
+            { ""Blind's Hideout - Left"", 0xEB12 },
+            { ""Blind's Hideout - Right"", 0xEB15 },
+            { ""Blind's Hideout - Top"", 0xEB0F },
+            { ""Bombos Tablet"", 0x180017 },
+            { ""Bottle Merchant"", 0x2EB18 },
+            { ""Castle Tower - Dark Maze"", 0xEAB2 },
+            { ""Castle Tower - Room 03"", 0xEAB5 },
+            { ""Cave 45"", 0x180003 },
+            { ""Checkerboard Cave"", 0x180005 },
+            { ""Chicken House"", 0xE9E9 },
+            { ""Desert Ledge"", 0x180143 },
+            { ""Desert Palace - Big Chest"", 0xE98F },
+            { ""Desert Palace - Big Key Chest"", 0xE9C2 },
+            { ""Desert Palace - Compass Chest"", 0xE9CB },
+            { ""Desert Palace - Lanmolas'"", 0x180151 },
+            { ""Desert Palace - Map Chest"", 0xE9B6 },
+            { ""Desert Palace - Torch"", 0x180160 },
+            { ""Eastern Palace - Armos Knights"", 0x180150 },
+            { ""Eastern Palace - Big Chest"", 0xE97D },
+            { ""Eastern Palace - Big Key Chest"", 0xE9B9 },
+            { ""Eastern Palace - Cannonball Chest"", 0xE9B3 },
+            { ""Eastern Palace - Compass Chest"", 0xE977 },
+            { ""Eastern Palace - Map Chest"", 0xE9F5 },
+            { ""Floodgate Chest"", 0xE98C },
+            { ""Flute Spot"", 0x18014A },
+            { ""Ganon's Tower - Big Chest"", 0xEAD6 },
+            { ""Ganon's Tower - Big Key Chest"", 0xEAF1 },
+            { ""Ganon's Tower - Big Key Room - Left"", 0xEAF4 },
+            { ""Ganon's Tower - Big Key Room - Right"", 0xEAF7 },
+            { ""Ganon's Tower - Bob's Chest"", 0xEADF },
+            { ""Ganon's Tower - Bob's Torch"", 0x180161 },
+            { ""Ganon's Tower - Compass Room - Bottom Left"", 0xEAEB },
+            { ""Ganon's Tower - Compass Room - Bottom Right"", 0xEAEE },
+            { ""Ganon's Tower - Compass Room - Top Left"", 0xEAE5 },
+            { ""Ganon's Tower - Compass Room - Top Right"", 0xEAE8 },
+            { ""Ganon's Tower - DMs Room - Bottom Left"", 0xEABE },
+            { ""Ganon's Tower - DMs Room - Bottom Right"", 0xEAC1 },
+            { ""Ganon's Tower - DMs Room - Top Left"", 0xEAB8 },
+            { ""Ganon's Tower - DMs Room - Top Right"", 0xEABB },
+            { ""Ganon's Tower - Firesnake Room"", 0xEAD0 },
+            { ""Ganon's Tower - Hope Room - Left"", 0xEAD9 },
+            { ""Ganon's Tower - Hope Room - Right"", 0xEADC },
+            { ""Ganon's Tower - Map Chest"", 0xEAD3 },
+            { ""Ganon's Tower - Mini Helmasaur Room - Left"", 0xEAFD },
+            { ""Ganon's Tower - Mini Helmasaur Room - Right"", 0xEB00 },
+            { ""Ganon's Tower - Moldorm Chest"", 0xEB06 },
+            { ""Ganon's Tower - Pre-Moldorm Chest"", 0xEB03 },
+            { ""Ganon's Tower - Randomizer Room - Bottom Left"", 0xEACA },
+            { ""Ganon's Tower - Randomizer Room - Bottom Right"", 0xEACD },
+            { ""Ganon's Tower - Randomizer Room - Top Left"", 0xEAC4 },
+            { ""Ganon's Tower - Randomizer Room - Top Right"", 0xEAC7 },
+            { ""Ganon's Tower - Tile Room"", 0xEAE2 },
+            { ""Graveyard Ledge"", 0x180004 },
+            { ""Hobo"", 0x33E7D },
+            { ""Hyrule Castle - Boomerang Chest"", 0xE974 },
+            { ""Hyrule Castle - Map Chest"", 0xEB0C },
+            { ""Hyrule Castle - Zelda's Cell"", 0xEB09 },
+            { ""Ice Palace - Big Chest"", 0xE9AA },
+            { ""Ice Palace - Big Key Chest"", 0xE9A4 },
+            { ""Ice Palace - Compass Chest"", 0xE9D4 },
+            { ""Ice Palace - Freezor Chest"", 0xE995 },
+            { ""Ice Palace - Iced T Room"", 0xE9E3 },
+            { ""Ice Palace - Kholdstare"", 0x180157 },
+            { ""Ice Palace - Map Chest"", 0xE9DD },
+            { ""Ice Palace - Spike Room"", 0xE9E0 },
+            { ""Ice Rod Cave"", 0xEB4E },
+            { ""Kakariko Tavern"", 0xE9CE },
+            { ""Kakriko Well - Bottom"", 0xEA9A },
+            { ""Kakriko Well - Left"", 0xEA91 },
+            { ""Kakriko Well - Middle"", 0xEA94 },
+            { ""Kakriko Well - Right"", 0xEA97 },
+            { ""Kakriko Well - Top"", 0xEA8E },
+            { ""King Zora"", 0xEE1C3 },
+            { ""King's Tomb"", 0xE97A },
+            { ""Lake Hylia Island"", 0x180144 },
+            { ""Library"", 0x180012 },
+            { ""Link's House"", 0xE9BC },
+            { ""Link's Uncle"", 0x2DF45 },
+            { ""Lost Woods Hideout"", 0x180000 },
+            { ""Lumberjack Tree"", 0x180001 },
+            { ""Magic Bat"", 0x180015 },
+            { ""Master Sword Pedestal"", 0x289B0 },
+            { ""Maze Race"", 0x180142 },
+            { ""Mini Moldorm Cave - Far Left"", 0xEB42 },
+            { ""Mini Moldorm Cave - Far Right"", 0xEB4B },
+            { ""Mini Moldorm Cave - Left"", 0xEB45 },
+            { ""Mini Moldorm Cave - NPC"", 0x180010 },
+            { ""Mini Moldorm Cave - Right"", 0xEB48 },
+            { ""Misery Mire - Big Chest"", 0xEA67 },
+            { ""Misery Mire - Big Key Chest"", 0xEA6D },
+            { ""Misery Mire - Bridge Chest"", 0xEA61 },
+            { ""Misery Mire - Compass Chest"", 0xEA64 },
+            { ""Misery Mire - Main Lobby"", 0xEA5E },
+            { ""Misery Mire - Map Chest"", 0xEA6A },
+            { ""Misery Mire - Spike Chest"", 0xE9DA },
+            { ""Misery Mire - Vitreous"", 0x180158 },
+            { ""Mushroom"", 0x180013 },
+            { ""Palace of Darkness - Big Chest"", 0xEA40 },
+            { ""Palace of Darkness - Big Key Chest"", 0xEA37 },
+            { ""Palace of Darkness - Compass Chest"", 0xEA43 },
+            { ""Palace of Darkness - Dark Basement - Left"", 0xEA4C },
+            { ""Palace of Darkness - Dark Basement - Right"", 0xEA4F },
+            { ""Palace of Darkness - Dark Maze - Bottom"", 0xEA58 },
+            { ""Palace of Darkness - Dark Maze - Top"", 0xEA55 },
+            { ""Palace of Darkness - Harmless Hellway"", 0xEA46 },
+            { ""Palace of Darkness - Helmasaur King"", 0x180153 },
+            { ""Palace of Darkness - Map Chest"", 0xEA52 },
+            { ""Palace of Darkness - Shooter Room"", 0xEA5B },
+            { ""Palace of Darkness - Stalfos Basement"", 0xEA49 },
+            { ""Palace of Darkness - The Arena - Bridge"", 0xEA3D },
+            { ""Palace of Darkness - The Arena - Ledge"", 0xEA3A },
+            { ""Pegasus Rocks"", 0xEB3F },
+            { ""Potion Shop"", 0x180014 },
+            { ""Pyramid Bottle"", 0x3493B },
+            { ""Sahasrahla"", 0x2F1FC },
+            { ""Sahasrahla's Hut - Left"", 0xEA82 },
+            { ""Sahasrahla's Hut - Middle"", 0xEA85 },
+            { ""Sahasrahla's Hut - Right"", 0xEA88 },
+            { ""Sanctuary"", 0xEA79 },
+            { ""Secret Passage"", 0xE971 },
+            { ""Sewers - Dark Cross"", 0xE96E },
+            { ""Sewers - Secret Room - Left"", 0xEB5D },
+            { ""Sewers - Secret Room - Middle"", 0xEB60 },
+            { ""Sewers - Secret Room - Right"", 0xEB63 },
+            { ""Sick Kid"", 0x339CF },
+            { ""Skull Woods - Big Chest"", 0xE998 },
+            { ""Skull Woods - Big Key Chest"", 0xE99E },
+            { ""Skull Woods - Bridge Room"", 0xE9FE },
+            { ""Skull Woods - Compass Chest"", 0xE992 },
+            { ""Skull Woods - Map Chest"", 0xE99B },
+            { ""Skull Woods - Mothula"", 0x180155 },
+            { ""Skull Woods - Pinball Room"", 0xE9C8 },
+            { ""Skull Woods - Pot Prison"", 0xE9A1 },
+            { ""Sunken Treasure"", 0x180145 },
+            { ""Swamp Palace - Arrghus"", 0x180154 },
+            { ""Swamp Palace - Big Chest"", 0xE989 },
+            { ""Swamp Palace - Big Key Chest"", 0xEAA6 },
+            { ""Swamp Palace - Compass Chest"", 0xEAA0 },
+            { ""Swamp Palace - Entrance"", 0xEA9D },
+            { ""Swamp Palace - Flooded Room - Left"", 0xEAA9 },
+            { ""Swamp Palace - Flooded Room - Right"", 0xEAAC },
+            { ""Swamp Palace - Map Chest"", 0xE986 },
+            { ""Swamp Palace - Waterfall Room"", 0xEAAF },
+            { ""Swamp Palace - West Chest"", 0xEAA3 },
+            { ""Thieves' Town - Ambush Chest"", 0xEA0A },
+            { ""Thieves' Town - Attic"", 0xEA0D },
+            { ""Thieves' Town - Big Chest"", 0xEA10 },
+            { ""Thieves' Town - Big Key Chest"", 0xEA04 },
+            { ""Thieves' Town - Blind"", 0x180156 },
+            { ""Thieves' Town - Blind's Cell"", 0xEA13 },
+            { ""Thieves' Town - Compass Chest"", 0xEA07 },
+            { ""Thieves' Town - Map Chest"", 0xEA01 },
+            { ""Tower of Hera - Basement Cage"", 0x180162 },
+            { ""Tower of Hera - Big Chest"", 0xE9F8 },
+            { ""Tower of Hera - Big Key Chest"", 0xE9E6 },
+            { ""Tower of Hera - Compass Chest"", 0xE9FB },
+            { ""Tower of Hera - Map Chest"", 0xE9AD },
+            { ""Tower of Hera - Moldorm"", 0x180152 },
+            { ""Turtle Rock - Big Chest"", 0xEA19 },
+            { ""Turtle Rock - Big Key Chest"", 0xEA25 },
+            { ""Turtle Rock - Chain Chomps"", 0xEA16 },
+            { ""Turtle Rock - Compass Chest"", 0xEA22 },
+            { ""Turtle Rock - Crystaroller Room"", 0xEA34 },
+            { ""Turtle Rock - Eye Bridge - Bottom Left"", 0xEA31 },
+            { ""Turtle Rock - Eye Bridge - Bottom Right"", 0xEA2E },
+            { ""Turtle Rock - Eye Bridge - Top Left"", 0xEA2B },
+            { ""Turtle Rock - Eye Bridge - Top Right"", 0xEA28 },
+            { ""Turtle Rock - Roller Room - Left"", 0xEA1C },
+            { ""Turtle Rock - Roller Room - Right"", 0xEA1F },
+            { ""Turtle Rock - Trinexx"", 0x180159 },
+            { ""Waterfall Bottle"", 0x348FF },
+            { ""Waterfall Fairy - Left"", 0xE9B0 },
+            { ""Waterfall Fairy - Right"", 0xE9D1 },
+            { ""Zora's Ledge"", 0x180149 },
+        };
+        ";
+
+        string IsTreasureString = @"
+        public static bool IsTreasure(string name, byte[] data)
+        {
+            var index = _locations[name];
+            if (index < 0x100000) index -= 0xE800;
+            else if (index > 0x180000) index -= (0x180000 - 0x400); // data array offset is 0x400
+            else throw new Exception(""bad index: "" + index);
+            var v = data[index];
+            return v < 0x70 && v != 0x24 && v != 0x25 && v != 0x32 && v != 0x33;
+        }
+        ";
+
         string currentIconset = @"IconsSets\Defaults";
         string currentBgr = @"None";
         Bitmap bgr;
@@ -418,15 +763,13 @@ namespace zeldaGui
                 var r = Tuple.Create<object, System.Reflection.MethodInfo>(null, null);
                 if (!item.eval.IsNullOrEmpty() && item.eval != "default")
                 {
-                    r = EvalCSCode.EvalCSCode.GetWithParamType<byte[], int, int>(item.eval, "d", "i", "c");
+                    r = EvalCSCode.EvalCSCode.GetWithParamType<byte[], byte[], int>(LocationsString+IsTreasureString, item.eval, "d", "t", "i");
                     item.co = r.Item1;
                     item.mi = r.Item2;
                 }
             }
             );
-
         }
-
 
         public void setDefaultItems()
         {
@@ -824,7 +1167,7 @@ namespace zeldaGui
         AutoResetEvent _ev = new AutoResetEvent(false);
         int _bufferIndex = 0;
         int _fileSize = 0;
-        Byte[] _buffer = new Byte[0x500];
+        Byte[] _buffer = new Byte[0x800];
 
         private void ws_OnMessage(object sender, MessageEventArgs e)
         {
@@ -943,6 +1286,7 @@ namespace zeldaGui
             if (autoUpdate == true && (!autoUpdateFile || File.Exists(openFileDialog1.FileName)))
             {
                 byte[] buffer = new byte[0x500];
+                byte[] treasureBuffer = new byte[0x800];
 
                 try
                 {
@@ -958,21 +1302,35 @@ namespace zeldaGui
 
                         Text = "Connected: " + fSerialPorts.portListView.SelectedItems[0].SubItems[1].Text;
 
-                        string msg = "{\"Opcode\":\"GetAddress\", \"Space\":\"SNES\", \"Operands\":[\"007FD7\", \"1\", \"180213\", \"2\"]}";
-                        _fileSize = 3;
+                        string msg = "{\"Opcode\":\"GetAddress\", \"Space\":\"SNES\", \"Operands\":[\"007FC0\", \"40\", \"180213\", \"2\"]}";
+                        _fileSize = 0x42;
                         ws.Send(msg);
                         if (!_ev.WaitOne(10000)) { Timeout(); return; }
 
-                        if (_buffer[0] < 0xB || (_buffer[1] == 0 && _buffer[2] == 1))
+                        // ok if
+                        // - original name
+                        // - non-race ROM
+                        // X - original size
+                        var origName = "ZELDANODENSETSU";
+                        var name = System.Text.Encoding.UTF8.GetString(new ArraySegment<byte>(_buffer, 0, origName.Length).ToArray());
+                        if (  origName == name
+                           || (_buffer[0x40] == 0 && _buffer[0x41] == 1)
+                           //|| _buffer[0x17] < 0xB
+                           )
                         {
-                            //string msg = "{\"Opcode\":\"GetAddress\", \"Space\":\"SNES\", \"Operands\":[\"F5F340\", \"FF\"]}";
                             msg = "{\"Opcode\":\"GetAddress\", \"Space\":\"SNES\", \"Operands\":[\"F5F000\", \"500\"]}";
                             _fileSize = 0x500;
                             ws.Send(msg);
                             if (!_ev.WaitOne(10000)) { Timeout(); return; }
-                            //_ev.Reset();
 
-                            Buffer.BlockCopy(_buffer, 0, buffer, 0, buffer.Length);
+                            Buffer.BlockCopy(_buffer, 0, buffer, 0, 0x500);
+
+                            msg = "{\"Opcode\":\"GetAddress\", \"Space\":\"SNES\", \"Operands\":[\"00E800\", \"400\", \"180000\", \"400\"]}";
+                            _fileSize = treasureBuffer.Length;
+                            ws.Send(msg);
+                            if (!_ev.WaitOne(10000)) { Timeout(); return; }
+
+                            Buffer.BlockCopy(_buffer, 0, treasureBuffer, 0, treasureBuffer.Length);
                         }
                         else
                         {
@@ -1002,7 +1360,7 @@ namespace zeldaGui
                             {
                                 try
                                 {
-                                    var r = item.mi.Invoke(item.co, new object[] { buffer, item.iconsId[0] + 0x340, item.iconsId.Length });
+                                    var r = item.mi.Invoke(item.co, new object[] { buffer, treasureBuffer, item.iconsId[0] + 0x340 });
 
                                     //var r = EvalCSCode.EvalCSCode.EvalWithParamType(item.eval, "d", buffer, "i", item.iconsId[0]);
                                     item.on = (bool)r.GetType().GetProperty("on").GetValue(r, null);
