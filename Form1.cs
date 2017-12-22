@@ -1255,6 +1255,9 @@ namespace zeldaGui
             }
             else
             {
+                msg = "{\"Opcode\":\"Name\", \"Space\":\"SNES\", \"Operands\":[\"" + "ZeldaHUD" + "\"]}";
+                ws.Send(msg);
+
                 msg = "{\"Opcode\":\"Attach\", \"Space\":\"SNES\", \"Operands\":[\"" + fSerialPorts.portListView.SelectedItems[0].SubItems[1].Text + "\"]}";
                 ws.Send(msg);
                 //_ev.WaitOne();
